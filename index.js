@@ -24,10 +24,16 @@ input.addEventListener('keydown', (event) => {
 
 //When the input lost focus, it validate that the email is correct
 input.addEventListener('blur', (event) => {
-    if (!validationForm(input.value)) {
+
+    if (input.value.length == 0) {
+        pValidation.style.display = 'none';
+        input.classList.remove('invalid');
+    }
+    else if (!validationForm(input.value)) {
         pValidation.style.display = 'initial';
         input.classList.add('invalid');
-    } else {
+    }
+    else {
         pValidation.style.display = 'none';
         input.classList.remove('invalid');
     }
